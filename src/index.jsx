@@ -3,13 +3,14 @@ import { Provider } from 'react-redux'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import createLogger from 'redux-logger'
-// import reducers from './reducers'
+import reducers from './reducers'
 // import Routes from './routes'
 import App from './components/App'
 import createHistory from 'history/createBrowserHistory'
 import { routerMiddleware } from 'react-router-redux'
 import thunkMiddleware from 'redux-thunk'
 import { applyMiddleware, compose, createStore } from 'redux'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 const loggerMiddleware = createLogger({
   predicate: (getState, action) => process.env.NODE_ENV !== 'production'
@@ -23,11 +24,13 @@ const store = compose(
     loggerMiddleware,
     routerMiddleware(createHistory())
   )
-)(createStore)//(reducers)
+)(createStore)(reducers)
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </Provider>,
   document.getElementById('viewport')
 )

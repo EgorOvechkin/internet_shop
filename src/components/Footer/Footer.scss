@@ -1,0 +1,11 @@
+.footer {
+  display: flex;
+}
+
+.footer__compnay-name {
+  flex-grow: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: break-word;
+  overflow: hidden;
+}

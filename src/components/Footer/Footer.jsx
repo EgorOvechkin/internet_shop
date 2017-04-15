@@ -1,5 +1,7 @@
+import './Footer.scss'
 import NavMenu from '../NavMenu'
-import React, { Component, PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 
 export default class App extends Component {
   static displayName = 'Footer'
@@ -10,9 +12,14 @@ export default class App extends Component {
     return (
       <footer className="footer">
         <span className="footer__compnay-name">
-          {this.props.companyName}
+          {
+            `${this.props.companyName} \u2014
+            ${new Date().getFullYear()}`
+          }
         </span>
-        <NavMenu />
+        <NavMenu
+          footer
+        />
       </footer>
     )
   }
