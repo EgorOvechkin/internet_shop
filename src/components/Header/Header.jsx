@@ -1,9 +1,15 @@
+import BusketButton from './BusketButton'
+import Logo from './Logo'
 import React, { Component } from 'react'
 
-export default class App extends Component {
+export default class Header extends Component {
   render() {
     return (
-      <div>HEADER</div>
+      <header>
+        <Logo />
+        <NavMenu />
+        <BusketButton />
+      </header>
     )
   }
 }

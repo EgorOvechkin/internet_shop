@@ -3,7 +3,7 @@ import NavMenu from '../NavMenu'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 
-export default class App extends Component {
+export default class Footer extends Component {
   static displayName = 'Footer'
   static propTypes = {
     companyName: PropTypes.string
