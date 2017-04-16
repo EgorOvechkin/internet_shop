@@ -4,7 +4,7 @@ export default class Logo extends Component {
   render() {
     return (
       <div>
-        Busket
+        Logo
       </div>
     )
   }
