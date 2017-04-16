@@ -7,7 +7,6 @@ export default class Content extends Component {
     return (
       <div className="content-main">
         CONTENT
-        <Rou>
         <Route
           path="/busket"
           component={BusketView}
