@@ -12,7 +12,8 @@ export default class Header extends Component {
         <Framer>
           <Logo />
         </Framer>
-        <div className="header__navigation">
+        <div className="header__indent" />
+        <div className="navigation">
           <NavMenu />
         </div>
         <Framer>

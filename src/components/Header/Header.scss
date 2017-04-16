@@ -3,10 +3,13 @@
   height: 3em;
 }
 
-.header__navigation {
+.navigation {
   flex-grow: 5;
-  padding-left: 2em;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+}
+
+.header__indent {
+  flex: 0 1 2em;
 }
