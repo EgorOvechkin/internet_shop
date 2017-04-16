@@ -1,5 +1,5 @@
 import './Header.scss'
-import BusketButton from './BusketButton'
+import BasketButton from './BasketButton'
 import Framer from './Framer'
 import Logo from './Logo'
 import NavMenu from '../NavMenu'
@@ -17,7 +17,7 @@ export default class Header extends Component {
           <NavMenu />
         </div>
         <Framer>
-          <BusketButton />
+          <BasketButton />
         </Framer>
       </header>
     )

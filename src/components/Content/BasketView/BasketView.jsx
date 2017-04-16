@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-export default class BusketView extends Component {
+export default class BasketView extends Component {
   render() {
     return (
       <div>
-        BUSKET
+        BaSKET
       </div>
     )
   }
