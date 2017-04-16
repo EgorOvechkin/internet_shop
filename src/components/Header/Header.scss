@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  height: 3em;
+}
+
+.header__navigation {
+  flex-grow: 5;
+  padding-left: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
