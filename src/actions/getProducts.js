@@ -1,6 +1,6 @@
 import { recieveProducts } from '../actions'
 
-export default function getProducts(skip = 0, count = 6) {
+export default function getProducts(skip = 0, count) {
   return async function action(dispatch) {
     try {
       const response = await fetch('/products.json')

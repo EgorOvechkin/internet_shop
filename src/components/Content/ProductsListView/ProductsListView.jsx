@@ -1,3 +1,6 @@
+import './ProductsListView.scss'
+import ProductFilter from './ProductFilter'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { getProducts } from '../../../actions'
 import React, { Component } from 'react'
@@ -12,14 +15,21 @@ const mapDispatchToProps = {
 }
 
 @connect(mapStateToProps, mapDispatchToProps)
-export default class ProductsView extends Component {
+export default class ProductsListView extends Component {
+  static displayName = 'ProductsListView'
+  static propTypes = {
+    getProducts: PropTypes.func
+  }
   componentWillMount() {
     this.props.getProducts()
   }
   render() {
     return (
-      <div>
-        Products List
+      <div className="products-list-view">
+        <ProductFilter className="products-list-view__filter" />
+        <div className="product-list-view__list">
+          Products List
+        </div>
       </div>
     )
   }
