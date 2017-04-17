@@ -1,0 +1,38 @@
+.product-list {
+  display: flex;
+  flex-flow: row wrap;
+  width: 75%;
+}
+
+.product-container {
+  flex: 1 1 16em;
+  height: 20em;
+  /*border: 1px solid red;*/
+}
+
+.product-view {
+  /*flex: 1 1 14em;*/
+  margin: auto;
+  width: 19em;
+  height: 18em;
+  border: 1px solid black;
+}
+
+.product__preview {
+  width: 15em;
+  height: 15em;
+  background: gray;
+  margin: auto;
+}
+
+.product__title {
+  text-decoration: underline;
+}
+
+.product__price {
+  text-decoration: underline;
+}
+
+.product__to-basket {
+  background: blue;
+}

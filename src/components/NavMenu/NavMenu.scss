@@ -1,10 +1,9 @@
 .nav-menu {
-  /*flex-grow: 5;*/
   display: flex;
-  /*justify-content: space-between;*/
 }
 
 .nav-menu_footer {
+  background: white;
   flex-grow: 3;
   display: flex;
   justify-content: space-around;

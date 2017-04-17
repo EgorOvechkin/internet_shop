@@ -1,3 +1,4 @@
+import './Content.scss'
 import BasketView from './BasketView'
 import ProductsListView from './ProductsListView'
 import { Route } from 'react-router-dom'

@@ -1,9 +1,11 @@
 .footer {
+  height: 2em;
   display: flex;
   border-top: 1px solid gray;
 }
 
 .footer__compnay-name {
+  background: white;
   flex-grow: 1;
   text-overflow: ellipsis;
   white-space: nowrap;

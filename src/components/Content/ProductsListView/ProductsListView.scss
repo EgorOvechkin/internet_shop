@@ -32,6 +32,8 @@
 .products-filter {
   border: 1px solid gray;
   flex: 1 1 25%;
+  width: 25%;
+  min-width: 6em;
 }
 
 .product-filter__input {
@@ -55,6 +57,6 @@
   display: flex;
 }
 
-.product-list-view__list {
+/*.product-list-view__list {
   flex: 3 0 75%;
-}
+}*/
