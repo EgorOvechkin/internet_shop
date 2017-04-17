@@ -26,7 +26,7 @@ export default class ProductsListView extends Component {
   render() {
     return (
       <div className="products-list-view">
-        <ProductFilter className="products-list-view__filter" />
+        <ProductFilter />
         <div className="product-list-view__list">
           Products List
         </div>

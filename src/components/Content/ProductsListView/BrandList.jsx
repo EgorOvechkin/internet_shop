@@ -1,14 +1,20 @@
+import './ProductsListView.scss'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 
 const BrandListEntry = (brand, key) =>
-  <div key={key}>
+  <div
+    className="brand-block"
+    key={key}
+  >
+    <div className="brand-block__empty-space" />
     <input
+      className="brand-block__checkbox"
       type="checkbox"
       name={brand}
       value={brand}
     />
-    <span>{brand}</span>
+    <span className="brand-block__brand-title">{brand}</span>
   </div>
 
 export default class BrandList extends Component {
@@ -19,8 +25,10 @@ export default class BrandList extends Component {
   }
   render() {
     return (
-      <div>
-        <h4>{this.props.title}</h4>
+      <div className="brand-list">
+        <h4 className="form-title">
+          {this.props.title}
+        </h4>
         {
           this.props.brands
           .map((brand, index) => BrandListEntry(brand, index))
