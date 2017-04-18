@@ -2,7 +2,9 @@ export getProducts from './actions/getProducts'
 
 export {
   recieveProduct,
-  recieveProducts
+  recieveProducts,
+  //TODO
+  dropProducts
 } from './reducers/products'
 
 export {
@@ -11,5 +13,6 @@ export {
   setAllProductsCount,
   setMaxPrice,
   setMinPrice,
-  toggleBrandInFilter
+  toggleBrandInFilter,
+  setFilter
 } from './reducers/ui'

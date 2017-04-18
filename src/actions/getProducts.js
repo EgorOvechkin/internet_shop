@@ -3,28 +3,46 @@ import {
   setAllProductsCount
 } from '../actions'
 
+export function applyFilter(products, filter) {
+  return products.filter(product => {
+    const {
+      brands,
+      maxPrice,
+      minPrice
+    } = filter
+    return (
+      product.price <= +maxPrice
+      && product.price >= +minPrice
+      && (brands.length == 0
+        || brands.some(brand => brand == product.brand)
+      )
+    )
+  })
+}
+
 export default function getProducts(skip = 0, count, withFilter) {
   return async function action(dispatch, getState) {
     try {
       const response = await fetch('/products.json')
       if (response.status == 200) {
         let allProducts = await response.json()
-        if (withFilter) {
-          allProducts = allProducts.filter(product => {
-            const {
-              brands,
-              maxPrice,
-              minPrice
-            } = getState().ui.filter
-            console.info(minPrice)
-            return (
-              product.price <= +maxPrice
-              && product.price >= +minPrice
-              && (brands.length == 0
-                || brands.some(brand => brand == product.brand)
-              )
-            )
-          })
+        //TODO ENABLE IN FILTER
+        if (getState().ui.enableFilter) {
+          // allProducts = allProducts.filter(product => {
+          //   const {
+          //     brands,
+          //     maxPrice,
+          //     minPrice
+          //   } = getState().ui.filter
+          //   return (
+          //     product.price <= +maxPrice
+          //     && product.price >= +minPrice
+          //     && (brands.length == 0
+          //       || brands.some(brand => brand == product.brand)
+          //     )
+          //   )
+          // })
+          allProducts = applyFilter(allProducts, getState().ui.filter)
         }
         console.info(allProducts)
         dispatch(setAllProductsCount(allProducts.length))

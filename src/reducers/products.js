@@ -2,6 +2,7 @@ import Ramda from 'ramda'
 
 export const RECIEVE_PRODUCTS = 'internet_shop/products/RECIEVE_PRODUCTS'
 export const RECIEVE_PRODUCT = 'internet_shop/products/RECIEVE_PRODUCT'
+export const DROP_PRODUCTS = 'internet_shop/products/DROP_PRODUCTS'
 
 const Product = {
   id: '',
@@ -13,6 +14,8 @@ const Product = {
 
 export default function reducer(state = {}, action = {}) {
   switch (action.type) {
+    case DROP_PRODUCTS:
+      return {}
     case RECIEVE_PRODUCT:
       const product = Ramda.merge(Product, action.payload)
       return Ramda.assoc(action.payload.id, product, state)
@@ -40,3 +43,9 @@ export function recieveProducts(products) {
   }
 }
 
+export function dropProducts(products) {
+  return {
+    type: DROP_PRODUCTS,
+    payload: products
+  }
+}

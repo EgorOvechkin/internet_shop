@@ -9,7 +9,9 @@ import {
   resetFilter,
   setMaxPrice,
   setMinPrice,
-  toggleBrandInFilter
+  toggleBrandInFilter,
+  setFilter,
+  dropProducts
 } from '../../../actions'
 
 function mapStateToProps(state, ownProps) {
@@ -28,7 +30,9 @@ const mapDispatchToProps = {
   resetFilter,
   setMaxPrice,
   setMinPrice,
-  toggleBrandInFilter
+  toggleBrandInFilter,
+  setFilter,
+  dropProducts
 }
 
 @connect(mapStateToProps, mapDispatchToProps)
@@ -64,7 +68,11 @@ export default class ProductFilter extends Component {
         />
         <div>
           <input
-            onClick={() => this.props.getProducts(0, 6, true)}
+            onClick={() => {
+              this.props.dropProducts()
+              this.props.setFilter(true)
+              this.props.getProducts(0, 6)
+            }}
             className="product-filter__submit"
             type="button"
             value="Применить"
@@ -73,7 +81,11 @@ export default class ProductFilter extends Component {
             value="Сбросить"
             type="button"
             className="product-filter__reset"
-            onClick={() => this.props.resetFilter()}
+            onClick={() => {
+              this.props.resetFilter()
+              this.props.dropProducts()
+              this.props.getProducts(0, 6)
+            }}
           />
         </div>
       </form>

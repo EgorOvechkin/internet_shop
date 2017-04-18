@@ -6,14 +6,17 @@ export const SET_MIN_PRICE = 'internet_shop/ui/SET_MIN_PRICE'
 export const SET_MAX_PRICE = 'internet_shop/ui/SET_MAX_PRICE'
 export const TOGGLE_BRAND = 'internet_shop/ui/TOGGLE_BRAND'
 export const RESET_FILTER = 'internet_shop/ui/RESET_FILTER'
+export const SET_FILTER = 'internet_shop/ui/SET_FILTER'
 
 const ui = {
+  allProductsCount: 0,
   basket: {},
   filter: {
     minPrice: 0,
     maxPrice: 1000000,
     brands: []
-  }
+  },
+  enableFilter: false
 }
 
 export default function reducer(state = ui, action = {}) {
@@ -21,13 +24,24 @@ export default function reducer(state = ui, action = {}) {
     case ADD_TO_BASKET:
       return Ramda.assocPath([ 'basket', action.payload ], 1, state)
     case RESET_FILTER:
-      return ui
+      const { allProductsCount, basket } = state
+      return Ramda.mergeAll(ui, { allProductsCount }, { basket })
     case SET_ALL_PRODUCTS_COUNT:
       return Ramda.assoc('allProductsCount', action.payload, state)
     case SET_MIN_PRICE:
-      return Ramda.assocPath([ 'filter', 'minPrice' ], action.payload, state)
+      return Ramda.assocPath(
+        [ 'filter', 'minPrice' ],
+        action.payload.replace(/\D/, ''),
+        state
+      )
     case SET_MAX_PRICE:
-      return Ramda.assocPath([ 'filter', 'maxPrice' ], action.payload, state)
+      return Ramda.assocPath(
+        [ 'filter', 'maxPrice' ],
+        action.payload.replace(/\D/, ''),
+        state
+      )
+    case SET_FILTER:
+      return Ramda.assoc('enableFilter', action.payload, state)
     case TOGGLE_BRAND:
       const brands = Ramda.path([ 'filter', 'brands' ], state) || []
       let newBrands = brands.concat(action.payload)
@@ -82,5 +96,12 @@ export function setAllProductsCount(count) {
   return {
     type: SET_ALL_PRODUCTS_COUNT,
     payload: count
+  }
+}
+
+export function setFilter(enable) {
+  return {
+    type: SET_FILTER,
+    payload: enable
   }
 }
