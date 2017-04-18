@@ -6,8 +6,9 @@ export {
 } from './reducers/products'
 
 export {
-  toggleBrandInFilter,
   addProductToBasket,
+  resetFilter,
   setMaxPrice,
-  setMinPrice
+  setMinPrice,
+  toggleBrandInFilter
 } from './reducers/ui'
