@@ -8,27 +8,30 @@
   display: flex;
   flex-flow: row wrap;
   /*width: 75%;*/
+  justify-content: center;
 }
 
 .product-container {
   flex: 1 1 16em;
-  height: 20em;
+  height: 23em;
   /*border: 1px solid red;*/
 }
 
 .product-view {
   /*flex: 1 1 14em;*/
   margin: auto;
-  width: 19em;
-  height: 18em;
+  width: 17.9em;
+  height: 21em;
   border: 1px solid black;
 }
 
 .product__preview {
-  width: 15em;
-  height: 15em;
-  background: gray;
+  width: 16em;
+  height: 14em;
+  background: #f2f2f2;
+  border: 1px solid gray;
   margin: auto;
+  margin-top: .7em
 }
 
 .product__title {
