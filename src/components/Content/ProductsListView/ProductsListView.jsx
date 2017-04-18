@@ -5,11 +5,14 @@ import { connect } from 'react-redux'
 import { getProducts } from '../../../actions'
 import React, { Component } from 'react'
 import ProductsList from './ProductsList'
+import { withRouter } from 'react-router-dom'
 
 function mapStateToProps(state, ownProps) {
-  // console.log('state: ', state)
+  const path = ownProps.location.pathname
+  // console.log('section: ', section)
   const products = Object.values(state.products)
   return {
+    path,
     products
   }
 }
@@ -18,6 +21,7 @@ const mapDispatchToProps = {
   getProducts
 }
 
+@withRouter
 @connect(mapStateToProps, mapDispatchToProps)
 export default class ProductsListView extends Component {
   static displayName = 'ProductsListView'
@@ -34,7 +38,10 @@ export default class ProductsListView extends Component {
         {/*<div className="product-list-view__list">
           Products List
         </div>*/}
-        <ProductsList products={this.props.products}/>
+        <ProductsList
+          path={this.props.path}
+          products={this.props.products}
+        />
       </div>
     )
   }
