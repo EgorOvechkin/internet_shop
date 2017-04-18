@@ -20,7 +20,7 @@ export default class Header extends Component {
           <Framer>
             <BasketButton />
           </Framer>
-          </div>
+        </div>
         <div className="header__bottom-indent" />
       </header>
     )
