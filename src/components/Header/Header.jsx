@@ -9,16 +9,19 @@ export default class Header extends Component {
   render() {
     return (
       <header className="header">
-        <Framer>
-          <Logo />
-        </Framer>
-        <div className="header__indent" />
-        <div className="navigation">
-          <NavMenu />
-        </div>
-        <Framer>
-          <BasketButton />
-        </Framer>
+        <div className="header-content">
+          <Framer>
+            <Logo />
+          </Framer>
+          <div className="header__indent" />
+          <div className="navigation">
+            <NavMenu />
+          </div>
+          <Framer>
+            <BasketButton />
+          </Framer>
+          </div>
+        <div className="header__bottom-indent" />
       </header>
     )
   }

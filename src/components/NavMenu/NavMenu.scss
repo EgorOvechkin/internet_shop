@@ -1,5 +1,6 @@
 .nav-menu {
   display: flex;
+  font-size: 4em;
 }
 
 .nav-menu_footer {
@@ -11,6 +12,7 @@
 
 .nav-menu__link {
   flex-grow: 1;
+  color: black;
 }
 
 .nav-menu__empty-space {

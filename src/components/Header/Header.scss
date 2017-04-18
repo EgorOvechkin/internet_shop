@@ -1,15 +1,26 @@
 .header {
   display: flex;
-  height: 3em;
+  flex-direction: column;
+}
+
+.header-content {
+  display: flex;
+  height: 5em;
 }
 
 .navigation {
-  flex-grow: 5;
+  flex-grow: 4;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  font-size: .3em;
 }
 
 .header__indent {
   flex: 0 1 2em;
+}
+
+
+.header__bottom-indent {
+  flex: 0 1 3.5em;
 }
