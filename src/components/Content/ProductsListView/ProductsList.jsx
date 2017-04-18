@@ -13,7 +13,7 @@ export default class ProductsList extends Component {
           .map(product =>
             <Product
               key={product.id}
-              path={this.props.path}
+              // path={this.props.path}
               {...product}
             />
           )

@@ -13,7 +13,7 @@ export default class Content extends Component {
           component={BasketView}
         />
         <Route
-          path="/section1"
+          path="/:section(section\d+)"
           component={ProductsListView}
         />
       </div>

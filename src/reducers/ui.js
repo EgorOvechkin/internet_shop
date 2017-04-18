@@ -1,0 +1,67 @@
+import Ramda from 'ramda'
+
+export const ADD_TO_BASKET = 'internet_shop/ui/ADD_TO_BASKET'
+export const SET_MIN_PRICE = 'internet_shop/ui/SET_MIN_PRICE'
+export const SET_MAX_PRICE = 'internet_shop/ui/SET_MAX_PRICE'
+export const TOGGLE_BRAND = 'internet_shop/ui/TOGGLE_BRAND'
+
+const ui = {
+  basket: {},
+  filter: {
+    minPrice: 0,
+    maxPrice: 1000000,
+    brands: []
+  }
+}
+
+export default function reducer(state = ui, action = {}) {
+  switch (action.type) {
+    case ADD_TO_BASKET:
+      return Ramda.assocPath([ 'basket', action.payload ], 1, state)
+    case SET_MIN_PRICE:
+      return Ramda.assocPath([ 'filter', 'minPrice' ], action.payload, state)
+    case SET_MAX_PRICE:
+      return Ramda.assocPath([ 'filter', 'maxPrice' ], action.payload, state)
+    case TOGGLE_BRAND:
+      const brands = Ramda.path([ 'filter', 'brands' ], state) || []
+      let newBrands = brands.concat(action.payload)
+      if (brands.some(brand => brand == action.payload)) {
+        newBrands = brands.filter(brand => brand != action.payload)
+      }
+      return Ramda.assocPath(
+        [ 'filter', 'brands' ],
+        newBrands,
+        state
+      )
+    default:
+      return state
+  }
+}
+
+export function addProductToBasket(productId) {
+  return {
+    type: ADD_TO_BASKET,
+    payload: productId
+  }
+}
+
+export function setMinPrice(price) {
+  return {
+    type: SET_MIN_PRICE,
+    payload: price
+  }
+}
+
+export function setMaxPrice(price) {
+  return {
+    type: SET_MAX_PRICE,
+    payload: price
+  }
+}
+
+export function toggleBrandInFilter(brand) {
+  return {
+    type: TOGGLE_BRAND,
+    payload: brand
+  }
+}

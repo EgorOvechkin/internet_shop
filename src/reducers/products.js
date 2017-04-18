@@ -1,7 +1,7 @@
 import Ramda from 'ramda'
 
-export const RECIEVE_PRODUCTS = 'internet_shop/products/recieve_products'
-export const RECIEVE_PRODUCT = 'internet_shop/products/recieve_product'
+export const RECIEVE_PRODUCTS = 'internet_shop/products/RECIEVE_PRODUCTS'
+export const RECIEVE_PRODUCT = 'internet_shop/products/RECIEVE_PRODUCT'
 
 const Product = {
   id: '',

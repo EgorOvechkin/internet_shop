@@ -1,18 +1,18 @@
 import './ProductsListView.scss'
 import ProductFilter from './ProductFilter'
+import ProductsList from './ProductsList'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { getProducts } from '../../../actions'
 import React, { Component } from 'react'
-import ProductsList from './ProductsList'
-import { withRouter } from 'react-router-dom'
+// import { withRouter } from 'react-router-dom'
 
 function mapStateToProps(state, ownProps) {
-  const path = ownProps.location.pathname
+  // const path = ownProps.location.pathname
   // console.log('section: ', section)
   const products = Object.values(state.products)
   return {
-    path,
+    // path,
     products
   }
 }
@@ -21,7 +21,7 @@ const mapDispatchToProps = {
   getProducts
 }
 
-@withRouter
+// @withRouter
 @connect(mapStateToProps, mapDispatchToProps)
 export default class ProductsListView extends Component {
   static displayName = 'ProductsListView'
@@ -39,7 +39,7 @@ export default class ProductsListView extends Component {
           Products List
         </div>*/}
         <ProductsList
-          path={this.props.path}
+          // path={this.props.path}
           products={this.props.products}
         />
       </div>

@@ -17,10 +17,10 @@ export default class NavMenu extends Component {
           : 'nav-menu'
         }
       >
-        <NavLink className="nav-menu__link" to="section1">Раздел 1</NavLink>
-        <NavLink className="nav-menu__link" to="section2">Раздел 2</NavLink>
-        <NavLink className="nav-menu__link" to="section3">Раздел 3</NavLink>
-        <NavLink className="nav-menu__link" to="section4">Раздел 4</NavLink>
+        <NavLink className="nav-menu__link" to="/section1">Раздел 1</NavLink>
+        <NavLink className="nav-menu__link" to="/section2">Раздел 2</NavLink>
+        <NavLink className="nav-menu__link" to="/section3">Раздел 3</NavLink>
+        <NavLink className="nav-menu__link" to="/section4">Раздел 4</NavLink>
         <div className="nav-menu__empty-space"></div>
       </div>
     )
