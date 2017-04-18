@@ -5,15 +5,13 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { getProducts } from '../../../actions'
 import React, { Component } from 'react'
-// import { withRouter } from 'react-router-dom'
 
 function mapStateToProps(state, ownProps) {
-  // const path = ownProps.location.pathname
-  // console.log('section: ', section)
   const products = Object.values(state.products)
+  const allProductsCount = state.ui.allProductsCount
   return {
-    // path,
-    products
+    products,
+    allProductsCount
   }
 }
 
@@ -21,12 +19,12 @@ const mapDispatchToProps = {
   getProducts
 }
 
-// @withRouter
 @connect(mapStateToProps, mapDispatchToProps)
 export default class ProductsListView extends Component {
   static displayName = 'ProductsListView'
   static propTypes = {
-    getProducts: PropTypes.func
+    getProducts: PropTypes.func,
+    products: PropTypes.arrayOf(PropTypes.object)
   }
   componentWillMount() {
     this.props.getProducts(0, 6)
@@ -35,13 +33,15 @@ export default class ProductsListView extends Component {
     return (
       <div className="products-list-view">
         <ProductFilter />
-        {/*<div className="product-list-view__list">
-          Products List
-        </div>*/}
         <ProductsList
-          // path={this.props.path}
           products={this.props.products}
         />
+        <button
+          disabled={this.props.products.length === this.props.allProductsCount}
+          onClick={() => this.props.getProducts(this.props.products.length, 6)}
+        >
+          SHOW MORE!
+        </button>
       </div>
     )
   }

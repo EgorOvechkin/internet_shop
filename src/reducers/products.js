@@ -24,6 +24,8 @@ export default function reducer(state = {}, action = {}) {
   }
 }
 
+// export function allProduct
+
 export function recieveProduct(product) {
   return {
     type: RECIEVE_PRODUCT,
@@ -37,3 +39,4 @@ export function recieveProducts(products) {
     payload: products
   }
 }
+

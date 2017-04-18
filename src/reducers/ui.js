@@ -1,6 +1,7 @@
 import Ramda from 'ramda'
 
 export const ADD_TO_BASKET = 'internet_shop/ui/ADD_TO_BASKET'
+export const SET_ALL_PRODUCTS_COUNT = 'internet_shop/products/SET_ALL_PRODUCTS_COUNT'
 export const SET_MIN_PRICE = 'internet_shop/ui/SET_MIN_PRICE'
 export const SET_MAX_PRICE = 'internet_shop/ui/SET_MAX_PRICE'
 export const TOGGLE_BRAND = 'internet_shop/ui/TOGGLE_BRAND'
@@ -21,6 +22,8 @@ export default function reducer(state = ui, action = {}) {
       return Ramda.assocPath([ 'basket', action.payload ], 1, state)
     case RESET_FILTER:
       return ui
+    case SET_ALL_PRODUCTS_COUNT:
+      return Ramda.assoc('allProductsCount', action.payload, state)
     case SET_MIN_PRICE:
       return Ramda.assocPath([ 'filter', 'minPrice' ], action.payload, state)
     case SET_MAX_PRICE:
@@ -72,5 +75,12 @@ export function toggleBrandInFilter(brand) {
 export function resetFilter() {
   return {
     type: RESET_FILTER
+  }
+}
+
+export function setAllProductsCount(count) {
+  return {
+    type: SET_ALL_PRODUCTS_COUNT,
+    payload: count
   }
 }

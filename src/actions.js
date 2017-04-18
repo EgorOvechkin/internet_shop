@@ -8,6 +8,7 @@ export {
 export {
   addProductToBasket,
   resetFilter,
+  setAllProductsCount,
   setMaxPrice,
   setMinPrice,
   toggleBrandInFilter

@@ -5,6 +5,7 @@ import { BRANDS } from '../../../constants'
 import Ramda from 'ramda'
 import { connect } from 'react-redux'
 import {
+  getProducts,
   resetFilter,
   setMaxPrice,
   setMinPrice,
@@ -23,6 +24,7 @@ function mapStateToProps(state, ownProps) {
 }
 
 const mapDispatchToProps = {
+  getProducts,
   resetFilter,
   setMaxPrice,
   setMinPrice,
@@ -62,8 +64,9 @@ export default class ProductFilter extends Component {
         />
         <div>
           <input
+            onClick={() => this.props.getProducts(0, 6, true)}
             className="product-filter__submit"
-            type="submit"
+            type="button"
             value="Применить"
           />
           <input

@@ -1,14 +1,33 @@
-import { recieveProducts } from '../actions'
+import {
+  recieveProducts,
+  setAllProductsCount
+} from '../actions'
 
-export default function getProducts(skip = 0, count) {
-  return async function action(dispatch) {
-
+export default function getProducts(skip = 0, count, withFilter) {
+  return async function action(dispatch, getState) {
     try {
       const response = await fetch('/products.json')
-      // console.info(response)
-      // console.info(response.json())
       if (response.status == 200) {
-        const allProducts = await response.json()
+        let allProducts = await response.json()
+        if (withFilter) {
+          allProducts = allProducts.filter(product => {
+            const {
+              brands,
+              maxPrice,
+              minPrice
+            } = getState().ui.filter
+            console.info(minPrice)
+            return (
+              product.price <= +maxPrice
+              && product.price >= +minPrice
+              && (brands.length == 0
+                || brands.some(brand => brand == product.brand)
+              )
+            )
+          })
+        }
+        console.info(allProducts)
+        dispatch(setAllProductsCount(allProducts.length))
         const products = allProducts.slice(skip, skip + count)
         dispatch(recieveProducts(products))
       } else {
