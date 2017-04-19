@@ -1,4 +1,5 @@
 export getProducts from './actions/getProducts'
+export getProductsByIds from './actions/getProductsByIds'
 
 export {
   recieveProduct,

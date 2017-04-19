@@ -20,7 +20,7 @@ export function applyFilter(products, filter) {
   })
 }
 
-export default function getProducts(skip = 0, count, withFilter) {
+export default function getProducts(skip = 0, count) {
   return async function action(dispatch, getState) {
     try {
       const response = await fetch('/products.json')
@@ -28,20 +28,6 @@ export default function getProducts(skip = 0, count, withFilter) {
         let allProducts = await response.json()
         //TODO ENABLE IN FILTER
         if (getState().ui.enableFilter) {
-          // allProducts = allProducts.filter(product => {
-          //   const {
-          //     brands,
-          //     maxPrice,
-          //     minPrice
-          //   } = getState().ui.filter
-          //   return (
-          //     product.price <= +maxPrice
-          //     && product.price >= +minPrice
-          //     && (brands.length == 0
-          //       || brands.some(brand => brand == product.brand)
-          //     )
-          //   )
-          // })
           allProducts = applyFilter(allProducts, getState().ui.filter)
         }
         console.info(allProducts)

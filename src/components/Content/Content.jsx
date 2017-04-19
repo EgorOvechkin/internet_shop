@@ -9,7 +9,7 @@ export default class Content extends Component {
     return (
       <div className="content-main">
         <Route
-          path="/basket"
+          path="/:section(basket)2"
           component={BasketView}
         />
         <Route

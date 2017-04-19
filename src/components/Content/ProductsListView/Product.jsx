@@ -9,8 +9,11 @@ import Ramda from 'ramda'
 
 function mapStateToProps(state, ownProps) {
   const section = Ramda.path([ 'match', 'params', 'section' ], ownProps)
+  const inBasket = section === 'basket'
+  console.info(section)
   return {
-    section
+    section,
+    inBasket
   }
 }
 
@@ -29,7 +32,11 @@ export default class Product extends Component {
   render() {
     return (
       <div
-        className="product-container"
+        className={
+          this.props.inBasket
+          ? "product-container"
+          : "product-container_basket"
+        }
         key={this.props.id}
       >
         <div className="product-view">

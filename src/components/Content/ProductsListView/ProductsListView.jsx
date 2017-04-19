@@ -5,10 +5,10 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { getProducts } from '../../../actions'
 import React, { Component } from 'react'
-import { applyFilter } from '../../../actions/getProducts'
+// import { applyFilter } from '../../../actions/getProducts'
 
 function mapStateToProps(state, ownProps) {
-  const enableFilter = state.ui.enableFilter
+  const enableFilter1 = state.ui.enableFilter
   const products = //enableFilter
     //? applyFilter(Object.values(state.products), state.ui.filter):
     Object.values(state.products)
