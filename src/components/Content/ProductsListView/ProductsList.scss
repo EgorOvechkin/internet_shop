@@ -11,6 +11,28 @@
   justify-content: center;
 }
 
+.product-list__show-more-button {
+  margin: auto;
+  border: 2px solid;
+  width: 20em;
+  height: 3em;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 3em;
+}
+
+.product-list__show-more-button_disabled {
+  margin: auto;
+  border: 2px solid;
+  width: 20em;
+  height: 3em;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 3em;
+  color: #f2f2f2;
+  cursor: not-allowed;
+}
+
 .product-container {
   flex: 1 1 16em;
   height: 23em;

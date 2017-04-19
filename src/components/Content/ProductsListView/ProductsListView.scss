@@ -57,6 +57,13 @@
   display: flex;
 }
 
-/*.product-list-view__list {
-  flex: 3 0 75%;
-}*/
+/*TODO*/
+.numbers-input__tooltip {
+  position: absolute;
+  width: 20em;
+  background: #f2f2f2;
+}
+
+.numbers-input-container {
+  position: relative;
+}

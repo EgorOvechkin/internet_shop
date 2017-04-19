@@ -41,17 +41,12 @@ export default class ProductsListView extends Component {
         <ProductFilter />
         <ProductsList
           products={this.props.products}
+          buttonDisabled={this.props.products.length === this.props.allProductsCount}
+          showMore={() => this.props.getProducts(this.props.products.length, 6)}
+          loading={this.props.loading}
+          //TODO
+          //buttonText={}
         />
-        {
-          this.props.loading
-          ? <div>Загрузка...</div>
-          : <button
-            disabled={this.props.products.length === this.props.allProductsCount}
-            onClick={() => this.props.getProducts(this.props.products.length, 6)}
-          >
-            SHOW MORE!
-          </button>
-        }
       </div>
     )
   }

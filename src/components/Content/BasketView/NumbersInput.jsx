@@ -17,7 +17,6 @@ export class NumbersInput extends Component {
           onChange={event => {
             if (/\D+/.test(event.target.value)
               && !this.props.isTooltipShowed) {
-              console.log('tooltips')
               this.props.showTooltip()
               setTimeout(
                 this.props.hideTooltip,//.bind(this),

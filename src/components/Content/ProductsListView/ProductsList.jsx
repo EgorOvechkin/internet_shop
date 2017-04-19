@@ -23,6 +23,21 @@ export default class ProductsList extends Component {
             )
           }
         </div>
+        {
+          this.props.loading
+          ? <div className={"product-list__show-more-button"}>Загрузка...</div>
+          : <div
+            className={
+              this.props.buttonDisabled
+              ? "product-list__show-more-button_disabled"
+              : "product-list__show-more-button"
+            }
+            onClick={this.props.showMore}
+            // disabled={this.props.buttonDisabled}
+          >
+            `Показать ещё 6 товаров`
+          </div>
+        }
       </div>
     )
   }

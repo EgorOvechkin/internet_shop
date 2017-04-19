@@ -7,7 +7,11 @@ import React, { Component } from 'react'
 export default class App extends Component {
   render() {
     return (
-      <div>
+      //TODO
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column'
+      }}>
         <Header />
         <Content />
         <Footer
