@@ -55,7 +55,7 @@ export default class BasketView extends Component {
           )
         }
         <span>
-          1{`Итого: ${this.props.summaryPrice.toLocaleString(LOCALE)} ${PRICE_UNIT}`}
+          {`Итого: ${this.props.summaryPrice.toLocaleString(LOCALE)} ${PRICE_UNIT}`}
         </span>
       </div>
     )
