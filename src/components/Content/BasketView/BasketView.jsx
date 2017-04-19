@@ -1,23 +1,21 @@
+import { Link } from 'react-router-dom'
+import Product from '../ProductsListView/Product'
 import { connect } from 'react-redux'
-import React, { Component } from 'react'
 import { getProductsByIds } from '../../../actions'
+import { LOCALE, PRICE_UNIT } from '../../../constants'
+import React, { Component } from 'react'
 import {
   orderedProductsSelector,
   summaryPriceSelector
 } from '../../../selectors'
-import Product from '../ProductsListView/Product'
-import { Link } from 'react-router-dom'
-import { LOCALE, PRICE_UNIT } from '../../../constants'
+import OrderForm from './OrderForm'
 
 function mapStateToProps(state, ownProps) {
-  // const productIds = Ramda.keys(Ramda.path([ 'ui', 'basket' ], state))
   const products = orderedProductsSelector(state)
   const summaryPrice = summaryPriceSelector(state)
-  // const productIds =
   return {
     products,
     summaryPrice
-    // allProductsCount
   }
 }
 
@@ -54,6 +52,7 @@ export default class BasketView extends Component {
         <span>
           {`Итого: ${this.props.summaryPrice.toLocaleString(LOCALE)} ${PRICE_UNIT}`}
         </span>
+        <OrderForm />
       </div>
     )
   }

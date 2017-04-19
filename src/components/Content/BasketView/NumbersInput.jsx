@@ -11,9 +11,9 @@ import {
 export class NumbersInput extends Component {
   render() {
     return (
-      <div>
+      <div className="numbers-input-container">
         <input
-          className={this.props.className}
+          className={this.props.inputClassName}
           onChange={event => {
             if (/\D+/.test(event.target.value)
               && !this.props.isTooltipShowed) {
@@ -33,7 +33,9 @@ export class NumbersInput extends Component {
         />
         {
           this.props.isTooltipShowed
-          && <div>{this.props.tooltipText || 'Принимаются только цифры'}</div>
+          && <div className={this.props.tooltipClassName}>
+            {this.props.tooltipText || 'Принимаются только цифры'}
+          </div>
         }
       </div>
     )
@@ -68,7 +70,8 @@ export default class NumbersInputWithArrows extends Component {
           )}
         />
         <NumbersInput
-          className={"numbers-input"}
+          inputClassName={"numbers-input"}
+          tooltipClassName={"numbers-input__tooltip"}
           delay={1000}
           isTooltipShowed={this.props.isTooltipShowed}
           showTooltip={() => this.props.showTooltip('numbersInput')}
