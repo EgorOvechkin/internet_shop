@@ -3,12 +3,12 @@ import React, { Component } from 'react'
 import { getProductsByIds } from '../../../actions'
 import { orderedProductsSelector } from '../../../selectors'
 import Product from '../ProductsListView/Product'
+import { Link } from 'react-router-dom'
 // import Ramda from 'ramda'
 
 function mapStateToProps(state, ownProps) {
   // const productIds = Ramda.keys(Ramda.path([ 'ui', 'basket' ], state))
   const products = orderedProductsSelector(state)
-  console.log(products)
   // const productIds =
   return {
     products
@@ -26,6 +26,16 @@ export default class BasketView extends Component {
 
   }
   render() {
+    if (this.props.products.length === 0) {
+      return (
+        <div>
+          В вашей корзине ничего нет, но это можно
+          <Link to={'/section1'}>
+            {' легко исправить'}
+          </Link>
+        </div>
+      )
+    }
     return (
       <div>
         {

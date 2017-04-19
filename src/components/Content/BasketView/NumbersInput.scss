@@ -1,0 +1,28 @@
+.numbers-input_with-arrow {
+  display: flex;
+  flex-direction: column;
+}
+
+.numbers-input {
+  width: 3em;
+  height: 1.5em;
+  text-align: center;
+}
+
+.numbers-input__arrow_up {
+  margin: auto;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #a2a2a2
+}
+
+.numbers-input__arrow_down {
+  margin: auto;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #a2a2a2;
+}

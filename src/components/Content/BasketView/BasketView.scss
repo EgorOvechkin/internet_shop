@@ -33,6 +33,7 @@
 .product__title_basket {
   flex: 1 0 25em;
   text-decoration: underline;
+  margin: auto;
 }
 
 .product__info_basket {
@@ -41,11 +42,15 @@
 
 .product__price_basket {
   flex: 1 0 10em;
+  margin: auto;
+
 }
 
 .product__to-basket_basket {
   flex: 1 0 8em;
-  background: #00f;
+  background: white;
   border: none;
-  color: white;
+  color: blue;
+  text-decoration: underline;
+  text-decoration-style: dotted;
 }

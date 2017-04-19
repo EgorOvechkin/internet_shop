@@ -1,12 +1,16 @@
 import Ramda from 'ramda'
 
 export const ADD_TO_BASKET = 'internet_shop/ui/ADD_TO_BASKET'
+export const REMOVE_FROM_BASKET = 'internet_shop/ui/REMOVE_FROM_BASKET'
 export const SET_ALL_PRODUCTS_COUNT = 'internet_shop/products/SET_ALL_PRODUCTS_COUNT'
 export const SET_MIN_PRICE = 'internet_shop/ui/SET_MIN_PRICE'
 export const SET_MAX_PRICE = 'internet_shop/ui/SET_MAX_PRICE'
 export const TOGGLE_BRAND = 'internet_shop/ui/TOGGLE_BRAND'
 export const RESET_FILTER = 'internet_shop/ui/RESET_FILTER'
 export const SET_FILTER = 'internet_shop/ui/SET_FILTER'
+export const SET_PRODUCTS_СOUNT = 'internet_shop/ui/SET_PRODUCTS_СOUNT'
+export const SHOW_TOOLTIP = 'internet_shop/ui/SHOW_TOOLTIP'
+export const HIDE_TOOLTIP = 'internet_shop/ui/HIDE_TOOLTIP'
 
 const ui = {
   allProductsCount: 0,
@@ -16,13 +20,26 @@ const ui = {
     maxPrice: 1000000,
     brands: []
   },
-  enableFilter: false
+  enableFilter: false,
+  tooltips: {}
 }
 
 export default function reducer(state = ui, action = {}) {
   switch (action.type) {
     case ADD_TO_BASKET:
       return Ramda.assocPath([ 'basket', action.payload ], 1, state)
+    case REMOVE_FROM_BASKET:
+      return Ramda.dissocPath([ 'basket', action.payload ], state)
+    case SET_PRODUCTS_СOUNT:
+      return Ramda.assocPath(
+        [ 'basket', action.payload.productId ],
+        action.payload.count,
+        state
+      )
+    case SHOW_TOOLTIP:
+      return Ramda.assocPath([ 'tooltips', action.payload ], true, state)
+    case HIDE_TOOLTIP:
+      return Ramda.dissocPath([ 'tooltips', action.payload ], state)
     case RESET_FILTER:
       const { allProductsCount, basket } = state
       return Ramda.mergeAll(ui, { allProductsCount }, { basket })
@@ -65,6 +82,13 @@ export function addProductToBasket(productId) {
   }
 }
 
+export function removeProductFromBasket(productId) {
+  return {
+    type: REMOVE_FROM_BASKET,
+    payload: productId
+  }
+}
+
 export function setMinPrice(price) {
   return {
     type: SET_MIN_PRICE,
@@ -103,5 +127,29 @@ export function setFilter(enable) {
   return {
     type: SET_FILTER,
     payload: enable
+  }
+}
+
+export function setProductsCount(productId, count) {
+  return {
+    type: SET_PRODUCTS_СOUNT,
+    payload: {
+      productId,
+      count
+    }
+  }
+}
+//TODO
+export function showTooltip(tooltip) {
+  return {
+    type: SHOW_TOOLTIP,
+    payload: tooltip
+  }
+}
+
+export function hideTooltip(tooltip) {
+  return {
+    type: HIDE_TOOLTIP,
+    payload: tooltip
   }
 }

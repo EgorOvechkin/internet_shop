@@ -14,6 +14,10 @@ export {
   setAllProductsCount,
   setMaxPrice,
   setMinPrice,
+  removeProductFromBasket,
   toggleBrandInFilter,
-  setFilter
+  setFilter,
+  setProductsCount,
+  showTooltip,
+  hideTooltip
 } from './reducers/ui'

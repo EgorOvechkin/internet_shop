@@ -1,18 +1,17 @@
 import './ProductsList.scss'
 import '../BasketView/BasketView.scss'
-import { addProductToBasket } from '../../../actions'
+import { addProductToBasket, removeProductFromBasket } from '../../../actions'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { PRICE_UNIT } from '../../../constants'
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import Ramda from 'ramda'
+import NumbersInput from '../BasketView/NumbersInput'
 
 function mapStateToProps(state, ownProps) {
   const section = Ramda.path([ 'match', 'params', 'section' ], ownProps)
   const inBasket = section === 'basket'
-  console.info(inBasket)
-  console.info(section)
   return {
     section,
     inBasket
@@ -20,7 +19,8 @@ function mapStateToProps(state, ownProps) {
 }
 
 const mapDispatchToProps = {
-  addProductToBasket
+  addProductToBasket,
+  removeProductFromBasket
 }
 
 const priceDecorator = (price, unit) => {
@@ -77,6 +77,12 @@ export default class Product extends Component {
                 priceDecorator(this.props.price, PRICE_UNIT)
               }
             </span>
+            {
+              this.props.inBasket
+              && <NumbersInput
+                productId={this.props.id}
+              />
+            }
             <button
               className={
                 //TODO
@@ -85,10 +91,14 @@ export default class Product extends Component {
                 : "product__to-basket"
               }
               onClick={() => {
-                this.props.addProductToBasket(this.props.id)
+                if (this.props.inBasket) {
+                  this.props.removeProductFromBasket(this.props.id)
+                } else {
+                  this.props.addProductToBasket(this.props.id)
+                }
               }}
             >
-              В корзину
+              {this.props.inBasket ? 'Убрать' : 'В корзину'}
             </button>
           </div>
         </div>
