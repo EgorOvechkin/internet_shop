@@ -1,17 +1,25 @@
 import { connect } from 'react-redux'
 import React, { Component } from 'react'
 import { getProductsByIds } from '../../../actions'
-import { orderedProductsSelector } from '../../../selectors'
+import {
+  orderedProductsSelector,
+  summaryPriceSelector
+} from '../../../selectors'
 import Product from '../ProductsListView/Product'
 import { Link } from 'react-router-dom'
+import { priceDecorator } from '../ProductsListView/Product'
+import { LOCALE, PRICE_UNIT } from '../../../constants'
+
 // import Ramda from 'ramda'
 
 function mapStateToProps(state, ownProps) {
   // const productIds = Ramda.keys(Ramda.path([ 'ui', 'basket' ], state))
   const products = orderedProductsSelector(state)
+  const summaryPrice = summaryPriceSelector(state)
   // const productIds =
   return {
-    products
+    products,
+    summaryPrice
     // allProductsCount
   }
 }
@@ -46,6 +54,9 @@ export default class BasketView extends Component {
             />
           )
         }
+        <span>
+          1{`Итого: ${this.props.summaryPrice.toLocaleString(LOCALE)} ${PRICE_UNIT}`}
+        </span>
       </div>
     )
   }

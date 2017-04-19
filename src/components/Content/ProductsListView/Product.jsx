@@ -3,7 +3,7 @@ import '../BasketView/BasketView.scss'
 import { addProductToBasket, removeProductFromBasket } from '../../../actions'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { PRICE_UNIT } from '../../../constants'
+import { LOCALE, PRICE_UNIT } from '../../../constants'
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import Ramda from 'ramda'
@@ -74,7 +74,7 @@ export default class Product extends Component {
               : 'product__price'
             }>
               {
-                priceDecorator(this.props.price, PRICE_UNIT)
+                `${this.props.price.toLocaleString(LOCALE)} ${PRICE_UNIT}`
               }
             </span>
             {

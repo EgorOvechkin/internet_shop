@@ -1,4 +1,5 @@
 export const COMPANY_NAME = 'Company name'
+export const LOCALE = 'ru-RU'
 export const PRICE_UNIT = 'руб.'
 export const BRANDS = [
   'Бренд 1',
