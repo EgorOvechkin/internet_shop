@@ -35,7 +35,7 @@ export default class ProductsList extends Component {
             onClick={this.props.showMore}
             // disabled={this.props.buttonDisabled}
           >
-            `Показать ещё 6 товаров`
+            {this.props.buttonDisabled ? 'Больше товаров нет' : this.props.buttonText}
           </div>
         }
       </div>

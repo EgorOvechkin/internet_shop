@@ -45,7 +45,7 @@ export default class ProductsListView extends Component {
           showMore={() => this.props.getProducts(this.props.products.length, 6)}
           loading={this.props.loading}
           //TODO
-          //buttonText={}
+          buttonText={`Показать ещё ${this.props.allProductsCount - this.props.products.length >= 6 ? 6 : this.props.allProductsCount % 6} товаров`}
         />
       </div>
     )
