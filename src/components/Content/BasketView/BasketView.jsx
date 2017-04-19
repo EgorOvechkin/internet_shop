@@ -7,10 +7,7 @@ import {
 } from '../../../selectors'
 import Product from '../ProductsListView/Product'
 import { Link } from 'react-router-dom'
-import { priceDecorator } from '../ProductsListView/Product'
 import { LOCALE, PRICE_UNIT } from '../../../constants'
-
-// import Ramda from 'ramda'
 
 function mapStateToProps(state, ownProps) {
   // const productIds = Ramda.keys(Ramda.path([ 'ui', 'basket' ], state))

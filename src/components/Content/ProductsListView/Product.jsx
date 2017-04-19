@@ -23,11 +23,6 @@ const mapDispatchToProps = {
   removeProductFromBasket
 }
 
-const priceDecorator = (price, unit) => {
-  if (price < 1000) return `${price} ${unit}`
-  return `${Math.floor(price / 1000)}  ${price % 1000} ${unit}`
-}
-
 @withRouter
 @connect(mapStateToProps, mapDispatchToProps)
 export default class Product extends Component {

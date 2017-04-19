@@ -11,9 +11,11 @@ export const SET_FILTER = 'internet_shop/ui/SET_FILTER'
 export const SET_PRODUCTS_СOUNT = 'internet_shop/ui/SET_PRODUCTS_СOUNT'
 export const SHOW_TOOLTIP = 'internet_shop/ui/SHOW_TOOLTIP'
 export const HIDE_TOOLTIP = 'internet_shop/ui/HIDE_TOOLTIP'
+export const SET_PRODCTS_LOADING = 'internet_shop/ui/SET_PRODCTS_LOADING'
 
 const ui = {
   allProductsCount: 0,
+  productsLoading: false,
   basket: {},
   filter: {
     minPrice: 0,
@@ -70,6 +72,8 @@ export default function reducer(state = ui, action = {}) {
         newBrands,
         state
       )
+    case SET_PRODCTS_LOADING:
+      return Ramda.assoc('productsLoading', action.payload, state)
     default:
       return state
   }
@@ -151,5 +155,12 @@ export function hideTooltip(tooltip) {
   return {
     type: HIDE_TOOLTIP,
     payload: tooltip
+  }
+}
+
+export function setProductsLoading(isLoading) {
+  return {
+    type: SET_PRODCTS_LOADING,
+    payload: isLoading
   }
 }

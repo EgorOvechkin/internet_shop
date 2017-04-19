@@ -9,13 +9,15 @@ import React, { Component } from 'react'
 
 function mapStateToProps(state, ownProps) {
   const enableFilter = state.ui.enableFilter
+  const loading = state.ui.productsLoading
   const products = //enableFilter
     //? applyFilter(Object.values(state.products), state.ui.filter):
     Object.values(state.products)
   const allProductsCount = state.ui.allProductsCount
   return {
     products,
-    allProductsCount
+    allProductsCount,
+    loading
   }
 }
 
@@ -40,12 +42,16 @@ export default class ProductsListView extends Component {
         <ProductsList
           products={this.props.products}
         />
-        <button
-          disabled={this.props.products.length === this.props.allProductsCount}
-          onClick={() => this.props.getProducts(this.props.products.length, 6)}
-        >
-          SHOW MORE!
-        </button>
+        {
+          this.props.loading
+          ? <div>Загрузка...</div>
+          : <button
+            disabled={this.props.products.length === this.props.allProductsCount}
+            onClick={() => this.props.getProducts(this.props.products.length, 6)}
+          >
+            SHOW MORE!
+          </button>
+        }
       </div>
     )
   }

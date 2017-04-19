@@ -18,6 +18,7 @@ export {
   toggleBrandInFilter,
   setFilter,
   setProductsCount,
+  setProductsLoading,
   showTooltip,
-  hideTooltip
+  hideTooltip,
 } from './reducers/ui'
