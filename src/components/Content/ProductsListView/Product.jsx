@@ -1,4 +1,5 @@
 import './ProductsList.scss'
+import '../BasketView/BasketView.scss'
 import { addProductToBasket } from '../../../actions'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -10,6 +11,7 @@ import Ramda from 'ramda'
 function mapStateToProps(state, ownProps) {
   const section = Ramda.path([ 'match', 'params', 'section' ], ownProps)
   const inBasket = section === 'basket'
+  console.info(inBasket)
   console.info(section)
   return {
     section,
@@ -34,29 +36,54 @@ export default class Product extends Component {
       <div
         className={
           this.props.inBasket
-          ? "product-container"
-          : "product-container_basket"
+          ? 'product-container_basket'
+          : 'product-container'
         }
         key={this.props.id}
       >
-        <div className="product-view">
-          <div className="product__preview"/>
-          <div className="product__info">
+        <div className={
+          this.props.inBasket
+          ? 'product-view_basket'
+          : 'product-view'
+        }>
+          <div className={
+            this.props.inBasket
+            ? 'product__preview_basket'
+            : 'product__preview'
+          } />
+          <div className={
+            this.props.inBasket
+            ? 'product__info_basket'
+            : 'product__info'
+          }>
             <Link
               to={`/${this.props.section}/${this.props.id}`}
-              className="product__title"
+              className={
+                this.props.inBasket
+                ? 'product__title_basket'
+                : 'product__title'
+              }
             >
               {
                 this.props.name
               }
             </Link>
-            <span className="product__price">
+            <span className={
+              this.props.inBasket
+              ? 'product__price_basket'
+              : 'product__price'
+            }>
               {
                 priceDecorator(this.props.price, PRICE_UNIT)
               }
             </span>
             <button
-              className="product__to-basket"
+              className={
+                //TODO
+                this.props.inBasket
+                ? "product__to-basket_basket"
+                : "product__to-basket"
+              }
               onClick={() => {
                 this.props.addProductToBasket(this.props.id)
               }}

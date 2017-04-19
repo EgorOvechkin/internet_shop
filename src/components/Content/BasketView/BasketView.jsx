@@ -8,6 +8,7 @@ import Product from '../ProductsListView/Product'
 function mapStateToProps(state, ownProps) {
   // const productIds = Ramda.keys(Ramda.path([ 'ui', 'basket' ], state))
   const products = orderedProductsSelector(state)
+  console.log(products)
   // const productIds =
   return {
     products

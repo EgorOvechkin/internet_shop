@@ -12,47 +12,39 @@
 }
 
 .product-container_basket {
-  flex: 1 1 16em;
-  height: 23em;
+  /*flex: 1 1 16em;*/
+  /*height: 23em;*/
   /*border: 1px solid red;*/
 }
 
 .product-view_basket {
-  /*flex: 1 1 14em;*/
-  margin: auto;
-  width: 17.9em;
-  height: 21em;
+  max-width: 50em;
+  display: flex;
   border: 1px solid black;
 }
 
 .product__preview_basket {
-  width: 16em;
-  height: 14em;
+  width: 5em;
+  height: 5em;
   background: #f2f2f2;
   border: 1px solid gray;
-  margin: auto;
-  margin-top: .7em
 }
 
 .product__title_basket {
-  flex: 1 0 100%;
+  flex: 1 0 25em;
   text-decoration: underline;
 }
 
 .product__info_basket {
   display: flex;
-  flex-flow: row wrap;
-  padding: 1em;
-  width: 16em;
-  /*text-decoration: underline;*/
 }
 
 .product__price_basket {
-  flex: 1 0;
+  flex: 1 0 10em;
 }
 
 .product__to-basket_basket {
-  flex: 1 0;
+  flex: 1 0 8em;
   background: #00f;
   border: none;
   color: white;
