@@ -6,11 +6,9 @@ export default class ValidatedInput extends Component {
       number: value => /^\d*$/.test(value),
       text: () => true
     }
-    //TODO default type text
     const validateCondition = this.props.validateCondition
     || conditions[this.props.type] || conditions.text
     return (
-      // <div className="numbers-input-container">
       <div>
         <input
           placeholder={this.props.placeholder || ''}

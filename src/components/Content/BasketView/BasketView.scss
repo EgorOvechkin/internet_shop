@@ -4,17 +4,25 @@
   width: 75%
 }
 
+.basket {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 35em;
+}
+
+.basket__title {
+  margin: 0;
+}
+
 .product-list__products-container_basket {
   display: flex;
   flex-flow: row wrap;
-  /*width: 75%;*/
   justify-content: center;
 }
 
 .product-container_basket {
-  /*flex: 1 1 16em;*/
-  /*height: 23em;*/
-  /*border: 1px solid red;*/
+
 }
 
 .product-view_basket {

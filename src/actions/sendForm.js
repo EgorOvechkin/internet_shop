@@ -6,7 +6,6 @@ export default function sendForm(ids = []) {
     dispatch(setOrderFormStatus('await'))
     setTimeout(
       () => {
-        // dispatch(resetState())
         dispatch(setOrderFormStatus('success'))
       },
       1000

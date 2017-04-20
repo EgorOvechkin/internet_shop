@@ -15,9 +15,6 @@ import { BrowserRouter as Router } from 'react-router-dom'
 const loggerMiddleware = createLogger({
   predicate: (getState, action) => process.env.NODE_ENV !== 'production'
 })
-
-// const App = () => (<h1>Hello!!!!!!!!!</h1>)
-
 const store = compose(
   applyMiddleware(
     thunkMiddleware,

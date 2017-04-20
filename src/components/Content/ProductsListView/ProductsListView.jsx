@@ -4,21 +4,14 @@ import ProductsList from './ProductsList'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import {
-  getProducts,
-  // setShowedProductsCount,
+  getProducts
 } from '../../../actions'
 import { filteredProductsSelector } from '../../../selectors'
 import React, { Component } from 'react'
-// import { applyFilter } from '../../../actions/getProducts'
 
 function mapStateToProps(state, ownProps) {
-  // const enableFilter = state.ui.enableFilter
   const loading = state.ui.productsLoading
-  // const
   const products = filteredProductsSelector(state)
-  //enableFilter
-    //? applyFilter(Object.values(state.products), state.ui.filter):
-    // Object.values(state.products)
   const allProductsCount = state.ui.allProductsCount
   const showedProductBlockCount = state.ui.showedProductBlockCount
   return {
@@ -30,9 +23,7 @@ function mapStateToProps(state, ownProps) {
 }
 
 const mapDispatchToProps = {
-  // setShowedProductsCount,
-  getProducts,
-  // resetFilter
+  getProducts
 }
 
 @connect(mapStateToProps, mapDispatchToProps)

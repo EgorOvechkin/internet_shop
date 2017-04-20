@@ -13,7 +13,10 @@ import {
 function mapStateToProps(state, ownProps) {
   const formsValues = Ramda.path([ 'ui', 'orderForm' ], state)
   const status = formsValues.status
+  const fields = Ramda.values(Ramda.dissoc('comment', Ramda.dissoc('status', formsValues)))
+  const isFormValid = fields.every(field => field.isValid && field.value !== '')
   return {
+    isFormValid,
     formsValues,
     status
   }
@@ -59,9 +62,7 @@ export default class OrderForm extends Component {
       }
     ]
     return (
-      <form
-        // onBlur={() => fields.forEach(item => setOrderFieldValidate(item.field, true))}
-      >
+      <form className={"order-form"}>
         {
           fields.map(item =>
             <ValidatedInput
@@ -81,7 +82,10 @@ export default class OrderForm extends Component {
               onFocus={() => this.props.setOrderFieldValidate(item.field, true)}
             />)
         }
-        <textarea />
+        <textarea
+          placeholder={"Комментарий"}
+          className={"order-form__textarea"}
+        />
         {
           this.props.status === 'success'
           && <span>Заказ оформлен</span>
@@ -93,8 +97,13 @@ export default class OrderForm extends Component {
         {
           this.props.status === 'notSended'
           && <div
+            className={this.props.isFormValid
+              ? 'order-form__send'
+              : 'order-form__send_disabled'}
             onClick={() => {
-              this.props.sendForm()
+              if (this.props.isFormValid) {
+                this.props.sendForm()
+              }
             }}
           >
             Оформить заказ

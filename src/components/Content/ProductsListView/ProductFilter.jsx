@@ -10,13 +10,11 @@ import {
   getProducts,
   hideTooltip,
   resetFilter,
-  // setFilter,
   setMaxPrice,
   setMinPrice,
   showTooltip,
   toggleBrandInFilter,
-  toogleFilter,
-  // setShowedProductsCount,
+  toogleFilter
 } from '../../../actions'
 
 function mapStateToProps(state, ownProps) {
@@ -43,7 +41,6 @@ const mapDispatchToProps = {
   setMaxPrice,
   setMinPrice,
   toggleBrandInFilter,
-  // setFilter,
   toogleFilter,
   dropProducts,
   showTooltip,
@@ -54,7 +51,6 @@ const mapDispatchToProps = {
 export default class ProductFilter extends Component {
   render() {
     return (
-      // <Framer>
       <form
         onFocus={() => {
           if (this.props.enable) {

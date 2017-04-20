@@ -1,3 +1,4 @@
+import './BasketView.scss'
 import { Link } from 'react-router-dom'
 import Product from '../ProductsListView/Product'
 import { connect } from 'react-redux'
@@ -5,9 +6,9 @@ import { getProductsByIds } from '../../../actions'
 import { LOCALE, PRICE_UNIT } from '../../../constants'
 import React, { Component } from 'react'
 import {
+  orderedProductsIdsSelector,
   orderedProductsSelector,
-  summaryPriceSelector,
-  orderedProductsIdsSelector
+  summaryPriceSelector
 } from '../../../selectors'
 import OrderForm from './OrderForm'
 
@@ -43,20 +44,20 @@ export default class BasketView extends Component {
       )
     }
     return (
-      <div>
-        <h1 className="products-list__title">Оформление зазказа</h1>
-        {
-          this.props.products.map(product =>
-            <Product
-              key={product.id}
-              {...product}
-            />
-          )
-        }
-        <span>
-          {`Итого: ${this.props.summaryPrice.toLocaleString(LOCALE)} ${PRICE_UNIT}`}
-        </span>
-        <OrderForm />
+      <div className="basket">
+        <h1 className="basket__title">Оформление зазказа</h1>
+          {
+            this.props.products.map(product =>
+              <Product
+                key={product.id}
+                {...product}
+              />
+            )
+          }
+          <span>
+            {`Итого: ${this.props.summaryPrice.toLocaleString(LOCALE)} ${PRICE_UNIT}`}
+          </span>
+          <OrderForm />
       </div>
     )
   }

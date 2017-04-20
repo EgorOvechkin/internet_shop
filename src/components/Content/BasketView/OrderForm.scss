@@ -1,3 +1,10 @@
+.order-form {
+  height: 15em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 .order-form__input {
   display: inline-block;
   width: 55%;
@@ -8,3 +15,35 @@
   color: red;
 }
 
+.order-form__textarea {
+  overflow-y: scroll;
+  min-height: 6em;
+  font-family: inherit;
+  width: 55%;
+}
+
+.order-form__send {
+  cursor: pointer;
+  background: blue;
+  color: white;
+  height: 2em;
+  width: 10em;
+  white-space: nowrap;
+  text-align: center;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 2em;
+}
+
+.order-form__send_disabled {
+  cursor: not-allowed;
+  background: blue;
+  color: white;
+  height: 2em;
+  width: 10em;
+  white-space: nowrap;
+  text-align: center;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 2em;
+}

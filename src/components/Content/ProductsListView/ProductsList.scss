@@ -7,7 +7,6 @@
 .product-list__products-container {
   display: flex;
   flex-flow: row wrap;
-  /*width: 75%;*/
   justify-content: center;
 }
 
@@ -36,11 +35,9 @@
 .product-container {
   flex: 1 1 16em;
   height: 23em;
-  /*border: 1px solid red;*/
 }
 
 .product-view {
-  /*flex: 1 1 14em;*/
   margin: auto;
   width: 17.9em;
   height: 21em;
@@ -66,7 +63,6 @@
   flex-flow: row wrap;
   padding: 1em;
   width: 16em;
-  /*text-decoration: underline;*/
 }
 
 .product__price {
