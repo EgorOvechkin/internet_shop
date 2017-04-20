@@ -1,7 +1,7 @@
 import './ProductsListView.scss'
 import { BRANDS } from '../../../constants'
 import BrandList from './BrandList'
-import { NumbersInput } from '../BasketView/NumbersInput'
+import ValidatedInput from '../BasketView/ValidatedInpuit'
 import Ramda from 'ramda'
 import { connect } from 'react-redux'
 import React, { Component } from 'react'
@@ -55,10 +55,10 @@ export default class ProductFilter extends Component {
       >
         <div className="product-filter__price-interval">
           <h4 className="form-title">Цена</h4>
-          <NumbersInput
+          <ValidatedInput
+            tyoe={'number'}
             inputClassName={"product-filter__input"}
             tooltipClassName={"numbers-input__tooltip"}
-            delay={1000}
             isTooltipShowed={this.props.isTooltipShowed.minPrice}
             showTooltip={() => this.props.showTooltip('minPrice')}
             hideTooltip={() => this.props.hideTooltip('minPrice')}
@@ -68,10 +68,10 @@ export default class ProductFilter extends Component {
             onFocus={() => this.props.setMinPrice(String(this.props.minPrice))}
           />
           <span>{'\u2014'}</span>
-          <NumbersInput
+          <ValidatedInput
+            type={'number'}
             inputClassName={"product-filter__input"}
             tooltipClassName={"numbers-input__tooltip"}
-            delay={1000}
             isTooltipShowed={this.props.isTooltipShowed.maxPrice}
             showTooltip={() => this.props.showTooltip('maxPrice')}
             hideTooltip={() => this.props.hideTooltip('maxPrice')}
@@ -80,11 +80,6 @@ export default class ProductFilter extends Component {
             onBlur={() => this.props.setMaxPrice(+this.props.maxPrice)}
             onFocus={() => this.props.setMaxPrice(String(this.props.maxPrice))}
           />
-          {/*<input
-            className="product-filter__input"
-            onChange={event => this.props.setMaxPrice(event.target.value)}
-            value={this.props.maxPrice}
-          />*/}
         </div>
         <BrandList
           isChecked={brand =>

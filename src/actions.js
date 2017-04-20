@@ -21,4 +21,6 @@ export {
   setProductsLoading,
   showTooltip,
   hideTooltip,
+  setOrderFieldValue,
+  setOrderFieldValidate
 } from './reducers/ui'

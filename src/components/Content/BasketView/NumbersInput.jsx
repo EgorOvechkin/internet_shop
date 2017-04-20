@@ -7,57 +7,7 @@ import {
   setProductsCount,
   showTooltip
 } from '../../../actions'
-
-export class NumbersInput extends Component {
-  render() {
-    const conditions = {
-      number: value => /\d+/.test(value)
-    }
-    const validateCondition = this.props.validateCondition
-    || conditions[this.props.type] || conditions.number
-    return (
-      <div className="numbers-input-container">
-        <input
-          className={this.props.inputClassName}
-          // onChange={event => {
-          //   if (/\D+/.test(event.target.value)
-          //     && !this.props.isTooltipShowed) {
-          //     this.props.showTooltip()
-          //     setTimeout(
-          //       this.props.hideTooltip,
-          //       this.props.delay
-          //     )
-          //   } else if (!this.props.isTooltipShowed) {
-          //     this.props.onChange(event.target.value)
-          //   }
-          // }}
-          onChange={event => {
-            const value = event.target.value
-            if (this.props.isTooltipShowed) return
-            if (validateCondition(value)) {
-              this.props.onChange(value)
-            } else {
-              this.props.showTooltip()
-              setTimeout(
-                this.props.hideTooltip,
-                this.props.delay
-              )
-            }
-          }}
-          onBlur={this.props.onBlur}
-          onFocus={this.props.onFocus}
-          value={this.props.value}
-        />
-        {
-          this.props.isTooltipShowed
-          && <div className={this.props.tooltipClassName}>
-            {this.props.tooltipText || 'Принимаются только цифры'}
-          </div>
-        }
-      </div>
-    )
-  }
-}
+import ValidatedInput from './ValidatedInpuit'
 
 function mapStateToProps(state, ownProps) {
   const isTooltipShowed = Ramda.path([ 'ui', 'tooltips', 'numbersInput' ], state)
@@ -86,10 +36,10 @@ export default class NumbersInputWithArrows extends Component {
             +this.props.productCount + 1
           )}
         />
-        <NumbersInput
+        <ValidatedInput
           inputClassName={"numbers-input"}
           tooltipClassName={"numbers-input__tooltip"}
-          delay={1000}
+          type={'number'}
           isTooltipShowed={this.props.isTooltipShowed}
           showTooltip={() => this.props.showTooltip('numbersInput')}
           hideTooltip={() => this.props.hideTooltip('numbersInput')}

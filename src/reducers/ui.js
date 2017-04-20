@@ -12,6 +12,8 @@ export const SET_PRODUCTS_СOUNT = 'internet_shop/ui/SET_PRODUCTS_СOUNT'
 export const SHOW_TOOLTIP = 'internet_shop/ui/SHOW_TOOLTIP'
 export const HIDE_TOOLTIP = 'internet_shop/ui/HIDE_TOOLTIP'
 export const SET_PRODCTS_LOADING = 'internet_shop/ui/SET_PRODCTS_LOADING'
+export const SET_ORDER_FIELD_VALIDATE = 'internet_shop/ui/SET_ORDER_FIELD_VALIDATE'
+export const SET_ORDER_FIELD_VALUE = 'internet_shop/ui/SET_ORDER_FIELD_VALue'
 
 const ui = {
   allProductsCount: 0,
@@ -23,7 +25,26 @@ const ui = {
     brands: []
   },
   enableFilter: false,
-  tooltips: {}
+  tooltips: {},
+  orderForm: {
+    name: {
+      value: '',
+      isValid: true
+    },
+    email: {
+      value: '',
+      isValid: true
+    },
+    phone: {
+      value: '',
+      isValid: true
+    },
+    address: {
+      value: '',
+      isValid: true
+    },
+    comment: ''
+  }
 }
 
 export default function reducer(state = ui, action = {}) {
@@ -74,6 +95,24 @@ export default function reducer(state = ui, action = {}) {
       )
     case SET_PRODCTS_LOADING:
       return Ramda.assoc('productsLoading', action.payload, state)
+    case SET_ORDER_FIELD_VALUE:
+      return Ramda.assocPath(
+        [ 'orderForm', action.payload.field, 'value' ],
+        action.payload.value,
+        state
+      )
+    case SET_ORDER_FIELD_VALUE:
+      return Ramda.assocPath(
+        [ 'orderForm', action.payload.field, 'value' ],
+        action.payload.value,
+        state
+      )
+    case SET_ORDER_FIELD_VALIDATE:
+      return Ramda.assocPath(
+        [ 'orderForm', action.payload.field, 'isValid' ],
+        action.payload.value,
+        state
+      )
     default:
       return state
   }
@@ -162,5 +201,25 @@ export function setProductsLoading(isLoading) {
   return {
     type: SET_PRODCTS_LOADING,
     payload: isLoading
+  }
+}
+
+export function setOrderFieldValue(field, value) {
+  return {
+    type: SET_ORDER_FIELD_VALUE,
+    payload: {
+      field,
+      value
+    }
+  }
+}
+
+export function setOrderFieldValidate(field, value) {
+  return {
+    type: SET_ORDER_FIELD_VALIDATE,
+    payload: {
+      field,
+      value
+    }
   }
 }
