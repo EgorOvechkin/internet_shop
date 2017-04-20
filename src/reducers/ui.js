@@ -50,13 +50,13 @@ export default function reducer(state = ui, action = {}) {
     case SET_MIN_PRICE:
       return Ramda.assocPath(
         [ 'filter', 'minPrice' ],
-        action.payload,//.replace(/\D/, ''),
+        action.payload,
         state
       )
     case SET_MAX_PRICE:
       return Ramda.assocPath(
         [ 'filter', 'maxPrice' ],
-        action.payload,//.replace(/\D/, ''),
+        action.payload,
         state
       )
     case SET_FILTER:

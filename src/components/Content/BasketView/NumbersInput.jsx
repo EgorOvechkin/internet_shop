@@ -10,20 +10,38 @@ import {
 
 export class NumbersInput extends Component {
   render() {
+    const conditions = {
+      number: value => /\d+/.test(value)
+    }
+    const validateCondition = this.props.validateCondition
+    || conditions[this.props.type] || conditions.number
     return (
       <div className="numbers-input-container">
         <input
           className={this.props.inputClassName}
+          // onChange={event => {
+          //   if (/\D+/.test(event.target.value)
+          //     && !this.props.isTooltipShowed) {
+          //     this.props.showTooltip()
+          //     setTimeout(
+          //       this.props.hideTooltip,
+          //       this.props.delay
+          //     )
+          //   } else if (!this.props.isTooltipShowed) {
+          //     this.props.onChange(event.target.value)
+          //   }
+          // }}
           onChange={event => {
-            if (/\D+/.test(event.target.value)
-              && !this.props.isTooltipShowed) {
+            const value = event.target.value
+            if (this.props.isTooltipShowed) return
+            if (validateCondition(value)) {
+              this.props.onChange(value)
+            } else {
               this.props.showTooltip()
               setTimeout(
-                this.props.hideTooltip,//.bind(this),
+                this.props.hideTooltip,
                 this.props.delay
               )
-            } else if (!this.props.isTooltipShowed) {
-              this.props.onChange(event.target.value)
             }
           }}
           onBlur={this.props.onBlur}

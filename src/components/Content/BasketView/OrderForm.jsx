@@ -4,15 +4,16 @@ export default class OrderForm extends Component {
   render() {
     return (
       <form>
-        <label htmlFor="name" />
-        <input
+{/*        <label htmlFor="name" />
+*/}        <input
           id="name"
           placeholder="name"
         />
         <br/>
-        <label htmlFor="email" />
-        <input
+{/*        <label htmlFor="email" />
+*/}        <input
           id="email"
+          type="email"
           placeholder="email"
         />
         <br/>
