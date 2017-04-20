@@ -1,7 +1,8 @@
 import { recieveProducts } from '../actions'
 
-export default function getProducts(ids = []) {
+export default function getProductsByIds(ids) {
   return async function action(dispatch) {
+    if (!ids || ids.length === 0) return
     try {
       const response = await fetch('/products.json')
       if (response.status == 200) {

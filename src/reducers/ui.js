@@ -14,6 +14,8 @@ export const HIDE_TOOLTIP = 'internet_shop/ui/HIDE_TOOLTIP'
 export const SET_PRODCTS_LOADING = 'internet_shop/ui/SET_PRODCTS_LOADING'
 export const SET_ORDER_FIELD_VALIDATE = 'internet_shop/ui/SET_ORDER_FIELD_VALIDATE'
 export const SET_ORDER_FIELD_VALUE = 'internet_shop/ui/SET_ORDER_FIELD_VALue'
+export const SET_ORDER_FORM_STATUS = 'internet_shop/ui/SET_ORDER_FORM_STATUS'
+export const RESET = 'internet_shop/ui/RESET'
 
 const ui = {
   allProductsCount: 0,
@@ -43,7 +45,11 @@ const ui = {
       value: '',
       isValid: true
     },
-    comment: ''
+    comment: {
+      value: '',
+      isValid: true
+    },
+    status: 'notSended'
   }
 }
 
@@ -113,6 +119,14 @@ export default function reducer(state = ui, action = {}) {
         action.payload.value,
         state
       )
+    case SET_ORDER_FORM_STATUS:
+      return Ramda.assocPath(
+        [ 'orderForm', 'status' ],
+        action.payload,
+        state
+      )
+    case RESET:
+      return ui
     default:
       return state
   }
@@ -221,5 +235,18 @@ export function setOrderFieldValidate(field, value) {
       field,
       value
     }
+  }
+}
+
+export function setOrderFormStatus(status) {
+  return {
+    type: SET_ORDER_FORM_STATUS,
+    payload: status
+  }
+}
+
+export function resetState() {
+  return {
+    type: RESET
   }
 }

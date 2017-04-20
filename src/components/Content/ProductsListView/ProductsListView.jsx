@@ -3,7 +3,9 @@ import ProductFilter from './ProductFilter'
 import ProductsList from './ProductsList'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { getProducts } from '../../../actions'
+import {
+  getProducts,
+} from '../../../actions'
 import React, { Component } from 'react'
 // import { applyFilter } from '../../../actions/getProducts'
 
@@ -22,7 +24,8 @@ function mapStateToProps(state, ownProps) {
 }
 
 const mapDispatchToProps = {
-  getProducts
+  getProducts,
+  // resetFilter
 }
 
 @connect(mapStateToProps, mapDispatchToProps)
@@ -30,7 +33,8 @@ export default class ProductsListView extends Component {
   static displayName = 'ProductsListView'
   static propTypes = {
     getProducts: PropTypes.func,
-    products: PropTypes.arrayOf(PropTypes.object)
+    products: PropTypes.arrayOf(PropTypes.object),
+    resetFilter: PropTypes.func
   }
   componentWillMount() {
     this.props.getProducts(0, 6)

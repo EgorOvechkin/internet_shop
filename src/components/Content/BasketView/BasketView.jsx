@@ -6,14 +6,17 @@ import { LOCALE, PRICE_UNIT } from '../../../constants'
 import React, { Component } from 'react'
 import {
   orderedProductsSelector,
-  summaryPriceSelector
+  summaryPriceSelector,
+  orderedProductsIdsSelector
 } from '../../../selectors'
 import OrderForm from './OrderForm'
 
 function mapStateToProps(state, ownProps) {
+  const ids = orderedProductsIdsSelector(state)
   const products = orderedProductsSelector(state)
   const summaryPrice = summaryPriceSelector(state)
   return {
+    ids,
     products,
     summaryPrice
   }
@@ -26,7 +29,7 @@ const mapDispatchToProps = {
 @connect(mapStateToProps, mapDispatchToProps)
 export default class BasketView extends Component {
   componentWillMount() {
-
+    this.props.getProductsByIds(this.props.ids)
   }
   render() {
     if (this.props.products.length === 0) {
@@ -41,6 +44,7 @@ export default class BasketView extends Component {
     }
     return (
       <div>
+        <h1 className="products-list__title">Оформление зазказа</h1>
         {
           this.props.products.map(product =>
             <Product

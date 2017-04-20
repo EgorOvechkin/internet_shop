@@ -4,26 +4,34 @@ import Ramda from 'ramda'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {
+  sendForm,
+  setOrderFieldValidate,
   setOrderFieldValue,
-  setOrderFieldValidate
+  setOrderFormStatus,
 } from '../../../actions'
 
 function mapStateToProps(state, ownProps) {
   const formsValues = Ramda.path([ 'ui', 'orderForm' ], state)
+  const status = formsValues.status
   return {
-    formsValues
+    formsValues,
+    status
   }
 }
 
 const mapDispatchToProps = {
-  setOrderFieldValue,
-  setOrderFieldValidate
+  sendForm,
+  setOrderFieldValidate,
+  setOrderFieldValue
 }
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class OrderForm extends Component {
+  componentWillUnmount() {
+    setOrderFormStatus('notSended')
+  }
   render() {
-    const fileds = [
+    const fields = [
       {
         field: 'name',
         placeholder: 'Ваше имя',
@@ -51,9 +59,11 @@ export default class OrderForm extends Component {
       }
     ]
     return (
-      <form>
+      <form
+        // onBlur={() => fields.forEach(item => setOrderFieldValidate(item.field, true))}
+      >
         {
-          fileds.map(item =>
+          fields.map(item =>
             <ValidatedInput
               key={item.field}
               placeholder={item.placeholder}
@@ -70,6 +80,25 @@ export default class OrderForm extends Component {
               }}
               onFocus={() => this.props.setOrderFieldValidate(item.field, true)}
             />)
+        }
+        <textarea />
+        {
+          this.props.status === 'success'
+          && <span>Заказ оформлен</span>
+        }
+        {
+          this.props.status === 'await'
+          && <span>Обработка</span>
+        }
+        {
+          this.props.status === 'notSended'
+          && <div
+            onClick={() => {
+              this.props.sendForm()
+            }}
+          >
+            Оформить заказ
+          </div>
         }
       </form>
     )

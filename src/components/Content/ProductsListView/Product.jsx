@@ -69,7 +69,7 @@ export default class Product extends Component {
               : 'product__price'
             }>
               {
-                `${this.props.price.toLocaleString(LOCALE)} ${PRICE_UNIT}`
+                `${this.props.price && this.props.price.toLocaleString(LOCALE)} ${PRICE_UNIT}`
               }
             </span>
             {

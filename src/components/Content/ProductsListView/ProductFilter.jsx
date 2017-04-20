@@ -8,13 +8,13 @@ import React, { Component } from 'react'
 import {
   dropProducts,
   getProducts,
+  hideTooltip,
   resetFilter,
   setFilter,
   setMaxPrice,
   setMinPrice,
-  toggleBrandInFilter,
   showTooltip,
-  hideTooltip
+  toggleBrandInFilter
 } from '../../../actions'
 
 function mapStateToProps(state, ownProps) {
