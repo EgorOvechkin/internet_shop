@@ -29,8 +29,11 @@ export default function getProducts(skip = 0, count) {
       if (response.status == 200) {
         let allProducts = await response.json()
         //TODO ENABLE IN FILTER
-        if (getState().ui.enableFilter) {
+        console.log('do', allProducts)
+        if (getState().ui.filter.enable) {
           allProducts = applyFilter(allProducts, getState().ui.filter)
+          console.log('posle', allProducts)
+
         }
         dispatch(setAllProductsCount(allProducts.length))
         const products = allProducts.slice(skip, skip + count)

@@ -10,17 +10,20 @@ import {
   getProducts,
   hideTooltip,
   resetFilter,
-  setFilter,
+  // setFilter,
   setMaxPrice,
   setMinPrice,
   showTooltip,
-  toggleBrandInFilter
+  toggleBrandInFilter,
+  toogleFilter,
+  // setShowedProductsCount,
 } from '../../../actions'
 
 function mapStateToProps(state, ownProps) {
   const checkedBrands = Ramda.path([ 'ui', 'filter', 'brands' ], state)
   const maxPrice = Ramda.path([ 'ui', 'filter', 'maxPrice' ], state)
   const minPrice = Ramda.path([ 'ui', 'filter', 'minPrice' ], state)
+  const enable = Ramda.path([ 'ui', 'filter', 'enable' ], state)
   const isTooltipShowed = {
     minPrice: Ramda.path([ 'ui', 'tooltips', 'minPrice' ], state),
     maxPrice: Ramda.path([ 'ui', 'tooltips', 'maxPrice' ], state)
@@ -29,7 +32,8 @@ function mapStateToProps(state, ownProps) {
     checkedBrands,
     maxPrice,
     minPrice,
-    isTooltipShowed
+    isTooltipShowed,
+    enable
   }
 }
 
@@ -39,7 +43,8 @@ const mapDispatchToProps = {
   setMaxPrice,
   setMinPrice,
   toggleBrandInFilter,
-  setFilter,
+  // setFilter,
+  toogleFilter,
   dropProducts,
   showTooltip,
   hideTooltip
@@ -51,6 +56,13 @@ export default class ProductFilter extends Component {
     return (
       // <Framer>
       <form
+        onFocus={() => {
+          if (this.props.enable) {
+            this.props.toogleFilter(false)
+            this.props.dropProducts()
+            this.props.getProducts(0, 6)
+          }
+        }}
         className="products-filter"
       >
         <div className="product-filter__price-interval">
@@ -93,8 +105,9 @@ export default class ProductFilter extends Component {
         <div>
           <input
             onClick={() => {
-              this.props.dropProducts()
-              this.props.setFilter(true)
+              // this.props.dropProducts()
+              // this.props.setFilter(true)
+              this.props.toogleFilter(true)
               this.props.getProducts(0, 6)
             }}
             className="product-filter__submit"
@@ -106,9 +119,13 @@ export default class ProductFilter extends Component {
             type="button"
             className="product-filter__reset"
             onClick={() => {
-              this.props.resetFilter()
-              this.props.dropProducts()
-              this.props.getProducts(0, 6)
+              if (this.props.enable) {
+                this.props.resetFilter()
+                this.props.dropProducts()
+                this.props.getProducts(0, 6)
+              } else {
+                this.props.resetFilter()
+              }
             }}
           />
         </div>

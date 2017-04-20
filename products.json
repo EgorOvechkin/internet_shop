@@ -1,212 +1,242 @@
 [
   {
-    "brand": "Бренд 1",
-    "category": "section1",
-    "price": 987981,
+    "brand": "Бренд 3",
+    "category": "section3",
+    "price": 321558,
     "name": "Товар 0",
-    "id": "58f3836826032b4ccb188264"
+    "index": 0,
+    "id": "58f90d37b3f5c9c818df087f"
   },
   {
     "brand": "Бренд 3",
-    "category": "section3",
-    "price": 360117,
+    "category": "section2",
+    "price": 720544,
     "name": "Товар 1",
-    "id": "58f383681edc9a840806b2d2"
+    "index": 1,
+    "id": "58f90d37056aa27409973973"
   },
   {
-    "brand": "Бренд 10",
-    "category": "section4",
-    "price": 488857,
-    "name": "Товар 2",
-    "id": "58f383685ed3cb7c330fb91f"
-  },
-  {
-    "brand": "Бренд 2",
-    "category": "section2",
-    "price": 289525,
-    "name": "Товар 3",
-    "id": "58f3836830058a8d2914cdeb"
-  },
-  {
-    "brand": "Бренд 6",
+    "brand": "Бренд 9",
     "category": "section3",
-    "price": 342193,
-    "name": "Товар 4",
-    "id": "58f38368863ce767021ece34"
+    "price": 627779,
+    "name": "Товар 2",
+    "index": 2,
+    "id": "58f90d3747aada6840554107"
   },
   {
     "brand": "Бренд 3",
-    "category": "section4",
-    "price": 895622,
-    "name": "Товар 5",
-    "id": "58f38368af266768c74a7588"
-  },
-  {
-    "brand": "Бренд 2",
     "category": "section2",
-    "price": 467353,
-    "name": "Товар 6",
-    "id": "58f38368adaec28c60c8c24d"
+    "price": 840171,
+    "name": "Товар 3",
+    "index": 3,
+    "id": "58f90d37069d6a7468ade6a1"
   },
   {
-    "brand": "Бренд 5",
-    "category": "section4",
-    "price": 637467,
-    "name": "Товар 7",
-    "id": "58f38368de87e55e4e624b5a"
-  },
-  {
-    "brand": "Бренд 2",
-    "category": "section1",
-    "price": 482662,
-    "name": "Товар 8",
-    "id": "58f38368a62bd4eba6ca60c3"
-  },
-  {
-    "brand": "Бренд 4",
+    "brand": "Бренд 3",
     "category": "section3",
-    "price": 311180,
-    "name": "Товар 9",
-    "id": "58f38368ca280cfc79d389eb"
-  },
-  {
-    "brand": "Бренд 9",
-    "category": "section3",
-    "price": 14920,
-    "name": "Товар 10",
-    "id": "58f38368e376fe7b154fab16"
-  },
-  {
-    "brand": "Бренд 1",
-    "category": "section2",
-    "price": 40172,
-    "name": "Товар 11",
-    "id": "58f38368d9e3c37381b482a9"
-  },
-  {
-    "brand": "Бренд 1",
-    "category": "section4",
-    "price": 244509,
-    "name": "Товар 12",
-    "id": "58f38368581464001f4a7e20"
-  },
-  {
-    "brand": "Бренд 2",
-    "category": "section3",
-    "price": 785450,
-    "name": "Товар 13",
-    "id": "58f38368d8c84eb21dd46471"
-  },
-  {
-    "brand": "Бренд 6",
-    "category": "section4",
-    "price": 56104,
-    "name": "Товар 14",
-    "id": "58f38368e33952fb7c46ee06"
-  },
-  {
-    "brand": "Бренд 9",
-    "category": "section3",
-    "price": 78990,
-    "name": "Товар 15",
-    "id": "58f383687d2e2ef6f921c912"
-  },
-  {
-    "brand": "Бренд 8",
-    "category": "section1",
-    "price": 246636,
-    "name": "Товар 16",
-    "id": "58f38368b2a6b5530cc20539"
-  },
-  {
-    "brand": "Бренд 8",
-    "category": "section2",
-    "price": 923588,
-    "name": "Товар 17",
-    "id": "58f383689095bceb54fdbc76"
-  },
-  {
-    "brand": "Бренд 5",
-    "category": "section4",
-    "price": 359515,
-    "name": "Товар 18",
-    "id": "58f383685839adc55867b02c"
+    "price": 462943,
+    "name": "Товар 4",
+    "index": 4,
+    "id": "58f90d3721af29698c305f54"
   },
   {
     "brand": "Бренд 7",
+    "category": "section1",
+    "price": 235541,
+    "name": "Товар 5",
+    "index": 5,
+    "id": "58f90d37734340c609719e55"
+  },
+  {
+    "brand": "Бренд 1",
+    "category": "section1",
+    "price": 944846,
+    "name": "Товар 6",
+    "index": 6,
+    "id": "58f90d37d84e7a093bad53e3"
+  },
+  {
+    "brand": "Бренд 5",
+    "category": "section2",
+    "price": 281706,
+    "name": "Товар 7",
+    "index": 7,
+    "id": "58f90d377afc5c5696db2c57"
+  },
+  {
+    "brand": "Бренд 1",
+    "category": "section2",
+    "price": 690641,
+    "name": "Товар 8",
+    "index": 8,
+    "id": "58f90d37b2e247d15711e3b5"
+  },
+  {
+    "brand": "Бренд 8",
     "category": "section3",
-    "price": 395964,
-    "name": "Товар 19",
-    "id": "58f3836842831a2b99455b3d"
+    "price": 705525,
+    "name": "Товар 9",
+    "index": 9,
+    "id": "58f90d37dd67ce768d8b3c69"
+  },
+  {
+    "brand": "Бренд 4",
+    "category": "section1",
+    "price": 311317,
+    "name": "Товар 10",
+    "index": 10,
+    "id": "58f90d37c1b38c3ad79640db"
+  },
+  {
+    "brand": "Бренд 6",
+    "category": "section1",
+    "price": 295529,
+    "name": "Товар 11",
+    "index": 11,
+    "id": "58f90d375ae4e99968167fd0"
+  },
+  {
+    "brand": "Бренд 5",
+    "category": "section2",
+    "price": 167775,
+    "name": "Товар 12",
+    "index": 12,
+    "id": "58f90d370027991e1c3105f2"
+  },
+  {
+    "brand": "Бренд 8",
+    "category": "section1",
+    "price": 187603,
+    "name": "Товар 13",
+    "index": 13,
+    "id": "58f90d378252d0b5b2e37506"
+  },
+  {
+    "brand": "Бренд 5",
+    "category": "section3",
+    "price": 864013,
+    "name": "Товар 14",
+    "index": 14,
+    "id": "58f90d375c41c6bbc88dd224"
   },
   {
     "brand": "Бренд 6",
     "category": "section4",
-    "price": 576718,
+    "price": 527805,
+    "name": "Товар 15",
+    "index": 15,
+    "id": "58f90d371997b29808315c14"
+  },
+  {
+    "brand": "Бренд 5",
+    "category": "section3",
+    "price": 408397,
+    "name": "Товар 16",
+    "index": 16,
+    "id": "58f90d3737ae6e377ff61218"
+  },
+  {
+    "brand": "Бренд 9",
+    "category": "section3",
+    "price": 993588,
+    "name": "Товар 17",
+    "index": 17,
+    "id": "58f90d376de727da0546ace3"
+  },
+  {
+    "brand": "Бренд 6",
+    "category": "section2",
+    "price": 254966,
+    "name": "Товар 18",
+    "index": 18,
+    "id": "58f90d3780b9ec7c88ec7b78"
+  },
+  {
+    "brand": "Бренд 8",
+    "category": "section3",
+    "price": 742864,
+    "name": "Товар 19",
+    "index": 19,
+    "id": "58f90d37a4339a9f36708793"
+  },
+  {
+    "brand": "Бренд 6",
+    "category": "section1",
+    "price": 873939,
     "name": "Товар 20",
-    "id": "58f3836850f0b9d82df1879d"
+    "index": 20,
+    "id": "58f90d3761db258dbc0f5a05"
+  },
+  {
+    "brand": "Бренд 5",
+    "category": "section3",
+    "price": 627020,
+    "name": "Товар 21",
+    "index": 21,
+    "id": "58f90d3760580840d3b1e0ce"
   },
   {
     "brand": "Бренд 1",
     "category": "section3",
-    "price": 95709,
-    "name": "Товар 21",
-    "id": "58f3836807a6dd05cf8578ee"
-  },
-  {
-    "brand": "Бренд 4",
-    "category": "section3",
-    "price": 56793,
+    "price": 607952,
     "name": "Товар 22",
-    "id": "58f3836814b816b5607eafca"
+    "index": 22,
+    "id": "58f90d37427661c3b7257fd0"
   },
   {
-    "brand": "Бренд 6",
-    "category": "section2",
-    "price": 138252,
-    "name": "Товар 23",
-    "id": "58f38368311dedab2d0b4c16"
-  },
-  {
-    "brand": "Бренд 10",
-    "category": "section4",
-    "price": 219403,
-    "name": "Товар 24",
-    "id": "58f3836816775aacbb0d38dc"
-  },
-  {
-    "brand": "Бренд 9",
+    "brand": "Бренд 1",
     "category": "section3",
-    "price": 171873,
-    "name": "Товар 25",
-    "id": "58f38368b2e2921b68288e2e"
+    "price": 651234,
+    "name": "Товар 23",
+    "index": 23,
+    "id": "58f90d373f8099bfb8a457a0"
   },
   {
-    "brand": "Бренд 9",
-    "category": "section1",
-    "price": 101815,
-    "name": "Товар 26",
-    "id": "58f38368e7c38d125cb4dabd"
-  },
-  {
-    "brand": "Бренд 3",
+    "brand": "Бренд 8",
     "category": "section2",
-    "price": 344421,
-    "name": "Товар 27",
-    "id": "58f383680415d3a0e1da40d7"
+    "price": 847229,
+    "name": "Товар 24",
+    "index": 24,
+    "id": "58f90d377bd5c200f93b67f7"
   },
   {
     "brand": "Бренд 2",
-    "category": "section4",
-    "price": 976387,
-    "name": "Товар 28",
-    "id": "58f383684c42ed7d27450272"
+    "category": "section1",
+    "price": 72781,
+    "name": "Товар 25",
+    "index": 25,
+    "id": "58f90d3785b6d4973d7558bc"
   },
   {
-    "brand": "Бренд 4",
-    "category": "section1",
-    "price": 950144,
+    "brand": "Бренд 1",
+    "category": "section4",
+    "price": 259096,
+    "name": "Товар 26",
+    "index": 26,
+    "id": "58f90d37d88f32e838dcfbd8"
+  },
+  {
+    "brand": "Бренд 10",
+    "category": "section3",
+    "price": 357368,
+    "name": "Товар 27",
+    "index": 27,
+    "id": "58f90d37518654771d98979a"
+  },
+  {
+    "brand": "Бренд 1",
+    "category": "section4",
+    "price": 87984,
+    "name": "Товар 28",
+    "index": 28,
+    "id": "58f90d37d4ff5e5a383035d1"
+  },
+  {
+    "brand": "Бренд 2",
+    "category": "section2",
+    "price": 987072,
     "name": "Товар 29",
-    "id": "58f383687c8b9546cf6887a3"
+    "index": 29,
+    "id": "58f90d37a225b0049358cfb8"
   }
 ]

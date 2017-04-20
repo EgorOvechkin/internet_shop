@@ -10,14 +10,16 @@ export {
 } from './reducers/products'
 
 export {
+  toogleFilter,
   addProductToBasket,
   resetFilter,
   setAllProductsCount,
+  setShowedProductsCount,
   setMaxPrice,
   setMinPrice,
   removeProductFromBasket,
   toggleBrandInFilter,
-  setFilter,
+  // setFilter,
   setProductsCount,
   setProductsLoading,
   showTooltip,

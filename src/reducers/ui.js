@@ -16,17 +16,21 @@ export const SET_ORDER_FIELD_VALIDATE = 'internet_shop/ui/SET_ORDER_FIELD_VALIDA
 export const SET_ORDER_FIELD_VALUE = 'internet_shop/ui/SET_ORDER_FIELD_VALue'
 export const SET_ORDER_FORM_STATUS = 'internet_shop/ui/SET_ORDER_FORM_STATUS'
 export const RESET = 'internet_shop/ui/RESET'
+export const TOGGLE_FILTER = 'internet_shop/ui/TOGGLE_FILTER'
+export const SET_SHOWED_PRODUCTS_COUNT = 'internet_shop/ui/SET_SHOWED_PRODUCTS_COUNT'
 
 const ui = {
   allProductsCount: 0,
+  showedProductBlockCount: 1,
   productsLoading: false,
   basket: {},
   filter: {
+    enable: false,
     minPrice: 0,
     maxPrice: 1000000,
     brands: []
   },
-  enableFilter: false,
+  // enableFilter: false,
   tooltips: {},
   orderForm: {
     name: {
@@ -69,11 +73,27 @@ export default function reducer(state = ui, action = {}) {
       return Ramda.assocPath([ 'tooltips', action.payload ], true, state)
     case HIDE_TOOLTIP:
       return Ramda.dissocPath([ 'tooltips', action.payload ], state)
+    //TODO
     case RESET_FILTER:
-      const { allProductsCount, basket } = state
-      return Ramda.mergeAll(ui, { allProductsCount }, { basket })
+      // const { allProductsCount, basket } = state
+      // return Ramda.mergeAll(ui, { allProductsCount }, { basket })
+      return Ramda.merge(
+        state,
+        {
+          filter: {
+            enable: false,
+            minPrice: 0,
+            maxPrice: 1000000,
+            brands: []
+          }
+        }
+      )
+    case TOGGLE_FILTER:
+      return Ramda.assocPath([ 'filter', 'enable' ], action.payload, state)
     case SET_ALL_PRODUCTS_COUNT:
       return Ramda.assoc('allProductsCount', action.payload, state)
+    case SET_SHOWED_PRODUCTS_COUNT:
+      return Ramda.assoc('showedProductBlockCount', action.payload, state)
     case SET_MIN_PRICE:
       return Ramda.assocPath(
         [ 'filter', 'minPrice' ],
@@ -180,12 +200,19 @@ export function setAllProductsCount(count) {
   }
 }
 
-export function setFilter(enable) {
+export function setShowedProductsCount(count) {
   return {
-    type: SET_FILTER,
-    payload: enable
+    type: SET_SHOWED_PRODUCTS_COUNT,
+    payload: count
   }
 }
+
+// export function setFilter(enable) {
+//   return {
+//     type: SET_FILTER,
+//     payload: enable
+//   }
+// }
 
 export function setProductsCount(productId, count) {
   return {
@@ -248,5 +275,12 @@ export function setOrderFormStatus(status) {
 export function resetState() {
   return {
     type: RESET
+  }
+}
+
+export function toogleFilter(isEnable) {
+  return {
+    type: TOGGLE_FILTER,
+    payload: isEnable
   }
 }
